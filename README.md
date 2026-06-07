@@ -17,30 +17,34 @@ Compass exists to close that gap — inside the tool many campuses already use e
 Compass is a Slack agent with four focused features built for the Slack Agent Builder Challenge.
 
 ### Ask Compass
+
 Type a question in Slack and get a grounded, sourced answer from the campus knowledge base. Compass will never make things up — if it doesn't know, it says so and points you to the right office.
 
 ### Hand Raise `/handraise`
+
 A student can raise a support request in seconds. A form opens in Slack, the student picks a support type, writes a short description, and submits. The request is saved and posted to a private channel where staff can act on it.
 
 ### Study Buddies `/findbuddy COURSE_CODE`
+
 Students opt into a study group for any course. Compass matches them with classmates who are already interested in the same course and posts a connection message. No complex algorithm — just a clean match on course code.
 
 ### Success Team `/myteam`
+
 A personalized card showing the contacts every student should have: academic advisor, tutoring center, financial aid, wellness support, career services. Formatted in Slack Block Kit so it's readable at a glance.
 
 ---
 
 ## Tech Stack
 
-| Layer | Choice | Why |
-|---|---|---|
-| Slack framework | `@slack/bolt` (Node.js) | Official Slack SDK, well-documented, handles OAuth and events cleanly |
-| Runtime | Node.js 20 | Stable LTS, large ecosystem, works well with Bolt |
-| AI model | Groq API — Llama 3.3 70B | Free tier, fast inference, strong instruction-following |
-| Knowledge base | Local `.md` / `.json` files | Simple, version-controlled, no external service needed for MVP |
-| Database | Supabase (free tier) | Postgres with a REST API, easy to set up, no credit card required |
-| Slack UI | Block Kit | Native Slack formatting — modals, cards, buttons |
-| AI tool protocol | MCP (`@modelcontextprotocol/sdk`) | Connects the AI to the knowledge base as a structured tool call |
+| Layer            | Choice                            | Why                                                                   |
+| ---------------- | --------------------------------- | --------------------------------------------------------------------- |
+| Slack framework  | `@slack/bolt` (Node.js)           | Official Slack SDK, well-documented, handles OAuth and events cleanly |
+| Runtime          | Node.js 20                        | Stable LTS, large ecosystem, works well with Bolt                     |
+| AI model         | Groq API — Llama 3.3 70B          | Free tier, fast inference, strong instruction-following               |
+| Knowledge base   | Local `.md` / `.json` files       | Simple, version-controlled, no external service needed for MVP        |
+| Database         | Supabase (free tier)              | Postgres with a REST API, easy to set up, no credit card required     |
+| Slack UI         | Block Kit                         | Native Slack formatting — modals, cards, buttons                      |
+| AI tool protocol | MCP (`@modelcontextprotocol/sdk`) | Connects the AI to the knowledge base as a structured tool call       |
 
 ---
 
